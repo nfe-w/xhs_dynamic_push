@@ -67,7 +67,7 @@ def query_dynamic(uid=None):
 
                 note_card = note['noteCard']
                 content = note_card['displayTitle']
-                pic_url = note_card['cover']['infoList'][0]['url']
+                pic_url = note_card['cover']['infoList'][-1]['url']
                 jump_url = f"https://www.xiaohongshu.com/explore/{note_card['noteId']}"
                 logger.info(f'【查询动态状态】【{user_name}】动态有更新，准备推送：{content[:30]}')
                 push.push_for_xhs_dynamic(user_name, note_id, content, pic_url, jump_url, dynamic_time)
